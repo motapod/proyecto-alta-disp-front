@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable } from 'rxjs';
 
 @Injectable({
