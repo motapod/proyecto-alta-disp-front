@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Bienvenido al conversor de moneda</h1>
+  <p>Este es un conversor online de peso chileno a moneda extranjera.</p>
+
+  <div class="input-group">
+    <label for="amount">Ingrese el monto en pesos chilenos:</label>
+    <input type="number" id="amount" [(ngModel)]="amount">
+
+    <label for="currency">Elija tipo de moneda:</label>
+    <select id="currency" [(ngModel)]="targetCurrency">
+      <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+    </select>
+  </div>
+
+  <div class="button-group">
+    <button (click)="convert()">Convertir</button>
+    <div class="space"> </div>
+    <button (click)="getConversions()">Obtener Registros</button>
+  </div>
+
+  <div *ngIf="convertedAmount !== undefined">
+    <p>El monto convertido es: {{ convertedAmount }} {{ targetCurrency }}</p>
+  </div>
+
+  <div *ngIf="conversions.length > 0">
+    <h2>Registros de conversiones</h2>
+    <ul>
+      <li *ngFor="let conversion of conversions">
+        {{ conversion.SK | slice:9 }}: {{ conversion.monto }} CLP = {{ conversion.monto_convertido }} {{ targetCurrency }}
+      </li>
+    </ul>
+  </div>
+</div>
