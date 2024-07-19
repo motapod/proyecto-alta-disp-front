@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomeComponent } from './home.component';
+import { FormsModule } from '@angular/forms'; // Asegúrate de incluir FormsModule aquí
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CurrencyService } from '../currency.service';
+import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -9,10 +9,13 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [HomeComponent],
-      providers: [CurrencyService] // Proporciona el servicio si se usa en el componente
-    }).compileComponents();
+      imports: [
+        FormsModule, // Asegúrate de incluir FormsModule aquí también
+        HttpClientTestingModule
+      ],
+      declarations: [ HomeComponent ]
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {
